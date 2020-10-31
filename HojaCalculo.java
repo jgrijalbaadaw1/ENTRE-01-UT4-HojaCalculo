@@ -169,15 +169,20 @@ public class HojaCalculo
     { 
         HojaCalculo nuevaHoja = new HojaCalculo("Duplicada HojaX");
         
-        Fila nuevaFila1 = new Fila("");
-        nuevaFila1 = fila1.duplicar();
-        
-        Fila nuevaFila2 = fila2.duplicar();
-        Fila nuevaFila3 = fila3.duplicar();
-        
-        nuevaHoja.addFila(nuevaFila1);
-        nuevaHoja.addFila(nuevaFila2);
-        nuevaHoja.addFila(nuevaFila3);
+        switch(getNumeroFilas())
+        {
+            case 3:
+                Fila nuevaFila3 = fila3.duplicar();
+                nuevaHoja.addFila(nuevaFila3);
+                
+            case 2:
+                Fila nuevaFila2 = fila2.duplicar();
+                nuevaHoja.addFila(nuevaFila2);
+                
+            case 1:
+                Fila nuevaFila1 = fila1.duplicar();
+                nuevaHoja.addFila(nuevaFila1);
+        }
         
         return nuevaHoja;
     }
@@ -192,13 +197,20 @@ public class HojaCalculo
     {
         String salida = String.format("\n\n%s\n%8s%15s%16s%16s%16s",this.nombre,"","FECHA","INGRESOS","GASTOS","BENEFICIO");
         
-        salida = salida + "\n" + fila1.toString();
-        salida = salida + "\n" + fila2.toString();
-        salida = salida + "\n" + fila3.toString();
+        switch(getNumeroFilas())
+        {
+            case 3:
+                salida = salida + "\n" + fila3.toString();
+       
+            case 2:
+                salida = salida + "\n" + fila2.toString();
+            
+            case 1:
+                salida = salida + "\n" + fila1.toString();
+        }
+        
         salida = salida + "\n" + "-----------------------------------------------------------------------------";
-        
         String lineaFinal = String.format("%38s€%15s€%15s€",this.getTotalIngresos(),this.getTotalGastos(),this.getBeneficio());
-        
         salida = salida + "\n" + lineaFinal;
         
         //salida.format("\n%s\n%8s%15s%15s%15s%15s",this.nombre,"","FECHA","INGRESOS","GASTOS","BENEFICIO");
@@ -209,7 +221,7 @@ public class HojaCalculo
         
         // salida.concat("-----------------------------------------------------------------");
         // salida.concat(String.format("%38s%15s%15s",this.getTotalIngresos(),this.getTotalGastos(),this.getBeneficio()));
-        
+    
         return salida;                    
     }
 }

@@ -51,8 +51,23 @@ public class TestHojaCalculo
      * incluyendo la hoja duplicada
      *  
      */
-    public void test2() {
-         
+    public void test2()
+    {
+        System.out.print("\u000C");
+        
+        HojaCalculo hoja2 = new HojaCalculo("HOJA2");
+
+        Fecha fecha1 = new Fecha(7,10,2020);
+        Fecha fecha2 = new Fecha(8,10,2020);
+        
+        hoja2.addFila("Fila1",fecha1,260.00,125.00);
+        hoja2.addFila("Fila2",fecha2,125.00,245.00);
+        
+        HojaCalculo duplicadaHoja2 = hoja2.duplicarHoja(); 
+        
+        System.out.println(hoja2.toString());
+        
+        System.out.println(duplicadaHoja2.toString());
 
     }
 
@@ -62,8 +77,21 @@ public class TestHojaCalculo
      * incluyendo la hoja duplicada
      *  
      */
-    public void test3() {
-            
+    public void test3()
+    {
+        System.out.print("\u000C");
+        
+        HojaCalculo hoja3 = new HojaCalculo("HOJA3");
+
+        Fecha fecha1 = new Fecha(8,10,2020);
+        
+        hoja3.addFila("Fila1",fecha1,670.00,234.00);
+        
+        HojaCalculo duplicadaHoja3 = hoja3.duplicarHoja(); 
+        
+        System.out.println(hoja3.toString());
+        
+        System.out.println(duplicadaHoja3.toString());
 
     }
 
