@@ -62,11 +62,21 @@ public class Fila
      * Representación textual de una fila
      * (leer enunciado)
      */
-    public String toString() {
-      return null;
-
+    public String toString()
+    {
+        String idL = this.id;
+        String fechaL = this.fecha.toString();
+        double ingresosL = this.ingresos;
+        double gastosL = this.gastos;
+        double saldo = ingresosL - gastosL;
+        
+        String salida = String.format("%8s%15s%15.2f€%15.2f€%15.2f€",idL,fechaL,ingresosL,gastosL,saldo);
+        
+        if(saldo < 0)
+        {
+            salida = salida + " **";
+        }
+        
+        return salida;
     }
-
-     
-
 }

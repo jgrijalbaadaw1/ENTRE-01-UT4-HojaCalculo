@@ -26,7 +26,7 @@ public class Fecha
     
     public int getMes(){return mes;}
 
-    public int getAño(){ return año;}
+    public int getAño(){return año;}
 
     //========== SETTERS =========
     
