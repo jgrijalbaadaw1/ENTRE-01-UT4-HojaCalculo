@@ -125,7 +125,7 @@ public class HojaCalculo
      */
     public void addFila(Fila fila)
     {
-         if(!hojaCompleta())
+         if(hojaCompleta())
          {
              System.out.printf("%s no se puede añadir en %s",fila.getId(),this.nombre);
          }
@@ -190,16 +190,25 @@ public class HojaCalculo
      */
     public String toString()
     {
-        String salida = "";
+        String salida = String.format("\n\n%s\n%8s%15s%16s%16s%16s",this.nombre,"","FECHA","INGRESOS","GASTOS","BENEFICIO");
         
-        salida = String.format("%s\n%8s%15s%15s%15s%15s",this.nombre,"","FECHA","INGRESOS","GASTOS","BENEFICIO");
+        salida = salida + "\n" + fila1.toString();
+        salida = salida + "\n" + fila2.toString();
+        salida = salida + "\n" + fila3.toString();
+        salida = salida + "\n" + "-----------------------------------------------------------------------------";
         
-        salida.concat("\n" + fila1.toString());
-        salida.concat("\n" + fila2.toString());
-        salida.concat("\n" + fila3.toString());
+        String lineaFinal = String.format("%38s€%15s€%15s€",this.getTotalIngresos(),this.getTotalGastos(),this.getBeneficio());
         
-        salida.concat("-----------------------------------------------------------------");
-        salida.concat(String.format("%38s%15s%15s",this.getTotalIngresos(),this.getTotalGastos(),this.getBeneficio()));
+        salida = salida + "\n" + lineaFinal;
+        
+        //salida.format("\n%s\n%8s%15s%15s%15s%15s",this.nombre,"","FECHA","INGRESOS","GASTOS","BENEFICIO");
+        
+        // salida.concat("\n" = fila1.toString());
+        // salida.concat("\n" + fila2.toString());
+        // salida.concat("\n" + fila3.toString());
+        
+        // salida.concat("-----------------------------------------------------------------");
+        // salida.concat(String.format("%38s%15s%15s",this.getTotalIngresos(),this.getTotalGastos(),this.getBeneficio()));
         
         return salida;                    
     }

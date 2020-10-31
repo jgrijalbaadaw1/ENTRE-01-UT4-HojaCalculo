@@ -24,6 +24,8 @@ public class TestHojaCalculo
      */
     public void test1()
     {
+        System.out.print("\u000C");
+        
         HojaCalculo hoja1 = new HojaCalculo("HOJA1");
 
         Fecha fecha1 = new Fecha(4,10,2020);
@@ -33,13 +35,14 @@ public class TestHojaCalculo
         
         hoja1.addFila("Fila1",fecha1,25.50,132.00);
         hoja1.addFila("Fila2",fecha2,300.00,350.00);
-        hoja1.addFila("Fila3",fecha3,0.50,0.00);
+        hoja1.addFila("Fila3",fecha3,0.00,0.00);
         hoja1.addFila("Fila4",fecha4,100.00,99.00);
         
         HojaCalculo duplicadaHoja1 = hoja1.duplicarHoja(); 
         
-        hoja1.toString();
-        duplicadaHoja1.toString();
+        System.out.println(hoja1.toString());
+        
+        System.out.println(duplicadaHoja1.toString());
     }
 
     /**

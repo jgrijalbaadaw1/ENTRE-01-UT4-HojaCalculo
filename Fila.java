@@ -44,7 +44,7 @@ public class Fila
 
     public double getGastos(){return this.gastos;}
     
-    public double getBeneficio(){return this.ingresos - this.gastos;}
+    public double getBeneficio(){return (this.ingresos - this.gastos);}
 
     //======== METHODS ==========
     
